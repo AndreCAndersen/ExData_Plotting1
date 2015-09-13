@@ -35,10 +35,11 @@ hpc_data$Voltage <- as.numeric(hpc_data$Voltage)
 hpc_data$Global_intensity <- as.numeric(hpc_data$Global_intensity)
 
 # Actually building the graph
+png('plot2.png', width = 480, height = 480)
+
 par(mfrow=c(1,1))
 plot(hpc_data$DateTime, hpc_data$Global_active_power, type="n", ylab = 'Global Active Power (kilowatts)', yaxt='n', xlab = NA)
 axis(2, yaxp = c(0, 6, 3))
 lines(hpc_data$DateTime, hpc_data$Global_active_power, type='l')
 
-dev.copy(png,'plot2.png', width = 480, height = 480)
 dev.off()

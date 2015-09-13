@@ -41,6 +41,8 @@ hpc_data$Sub_metering_2 <- as.numeric(hpc_data$Sub_metering_2)
 hpc_data$Sub_metering_3 <- as.numeric(hpc_data$Sub_metering_3)
 
 # Actually building the graph
+png('plot3.png', width = 480, height = 480)
+
 par(mfrow=c(1,1))
 plot(hpc_data$DateTime, hpc_data$Sub_metering_1, type="n", ylab = 'Energy sub metering', xlab = NA, yaxt='n')
 lines(hpc_data$DateTime, hpc_data$Sub_metering_1, type='l', col='black')
@@ -49,5 +51,4 @@ lines(hpc_data$DateTime, hpc_data$Sub_metering_3, type='l', col='blue')
 axis(2, yaxp = c(0, 30, 3))
 legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty = c(1,1,1), col = c("black","red","blue"))
 
-dev.copy(png,'plot3.png', width = 480, height = 480)
 dev.off()
